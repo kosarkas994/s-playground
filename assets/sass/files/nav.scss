@@ -1,0 +1,185 @@
+// File location: assets\src\sass\styles
+.header-main {
+	z-index: 9;
+}
+.sub-menu-trigger {
+svg {
+	stroke: var(--color-1);
+}
+}
+.top_bar {
+	background-color: var(--color-1);
+	color: #000;
+	text-align: center;
+	padding-block: 8px;
+	.top_bar_inner {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	p {
+		margin: 0;
+		font-size: 18px;
+		@include mob-only {
+			font-size: 14px;
+		}
+	}
+	a {
+		@include btn-2;
+		margin-left: 16px;
+		margin-bottom: 0;
+		padding: 1rem 2.5rem;
+		min-width: 170px;
+		font-size: 14px;
+	}
+}
+.nav_btn {
+	a {
+		margin-bottom: 0;
+	}
+}
+@include desk-min {
+	.hamburger {
+		display: none;
+	}
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation {
+		#primary-menu {
+			@include flex;
+			ul {
+				&.sub-menu {
+					float: left;
+					position: absolute;
+					top: 100%;
+					left: -999em;
+					z-index: 99;
+					min-width: 250px;
+					width: fit-content;
+					display: flex;
+					flex-direction: column;
+					background-color: #fff;
+					padding: 2rem;
+					opacity: 0;
+					transition: opacity .3s;
+					li:not(:last-child) {
+					a {
+						margin-bottom: .5rem;
+					}
+					}
+				}
+			}
+			> li {
+				margin-right: var(--space-4);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+				padding-block: 10px;
+				&.account {
+					order: 1;
+				}
+				&.menu-item-has-children {
+					a {
+						padding-right: 5px;
+					}
+				}
+				a {
+					color: var(--t-color);
+					font-size: 16px;
+				}
+				.sub-menu-trigger {
+					top: 4px;
+					position: relative;
+					right: 0;
+					transform: rotate(45deg);
+					cursor: pointer;
+					transition: var(--st);
+					svg {
+					stroke: var(--color-1);
+					}
+					> .sub-menu {
+					font-size: 17px;
+					box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+					}
+				}
+				&.st_mm {
+					&:hover {
+						ul.sub-menu {
+							left: auto;
+
+						}
+					}
+					ul.sub-menu {
+						width: fit-content;
+						min-width: 350px;
+						box-shadow: 0 1px 20px rgba(0,0,0,0.15);
+						border-top: 3px solid var(--color-4);
+						li {
+							&:not(:last-child) {
+								margin-bottom: 10px;
+							}
+							a {
+								display: flex;
+								padding-left: 45px;
+								flex-wrap: wrap;
+								font-size: 20px;
+								position: relative;
+								font-weight: 600;
+								color: var(--color-1);
+								img {
+									width: 35px;
+									position: absolute;
+									left: -5px;
+									top: 3px;
+								}
+								div {
+									width: 100%;
+									font-size: 15px;
+									color: #000;
+									opacity: .6;
+									transition: var(--st);
+									font-weight: 400;
+								}
+								&:hover {
+									div {
+										opacity: 1;
+									}
+								}
+							}
+
+						}
+					}
+				}
+			}
+			> li:hover {
+				.sub-menu-trigger{
+				transform: rotate(90deg);
+				top: 1px;
+				right: 4px;
+				}
+				.sub-menu {
+				opacity: 1;
+				left: -2rem;
+				}
+			}
+		}
+	}
+	.header-main {
+		/* position: sticky;
+		top: 0; */
+		@include flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-block: 1rem;
+		.site-logo {
+			width: 200px;
+			margin: 0;
+			img {
+				object-fit: contain;
+				height: auto;
+			}
+		}
+	}
+}

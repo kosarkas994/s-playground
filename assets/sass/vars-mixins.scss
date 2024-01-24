@@ -1,0 +1,493 @@
+:root {
+	--font-size-1: 5rem;
+	--font-size-2: 4.5rem;
+	--font-size-3: 4rem;
+	--font-size-4: 3rem;
+	--font-size-5: 2.5rem;
+	--font-size-6: 20px;
+
+	--line-height: 1.2;
+
+	--space-1: 10rem;
+	--space-2: 8rem;
+	--space-3: 6rem;
+	--space-4: 3rem;
+
+	--title-space-1: 6rem;
+	--title-space-2: 4rem;
+	--title-space-3: 3rem;
+	--title-space-4: 2rem;
+
+	--color-1: #ADF7BD;
+	--color-2: #67AB75;
+	--color-3: #EB5E44;
+	--color-4: #33D4BE;
+
+	--bg-dark: #18191B;
+	--bg-1: #f7f7f7;
+
+	--st: .3s all;
+
+
+
+	@media (min-width: 797.6px) /* Insert the same width as limbo-min variable */ {
+	  --site-width: 90%;
+	  --body-size: 18px;
+	}
+
+	@media (max-width: 797.5px) /* Insert the same width as tab-max variable */ {
+	  --site-width: calc(100% - 50px);
+	  --body-size: 17px;
+	}
+	--site-max-width: 1440px;
+  }
+
+  // Breakpoint sizes - Associated with Breakpoints in Mixins.scss
+
+  $mob-max: 479.5px;
+  $tab-min: 479.6px;
+  $tab-max: 797.5px;
+  $limbo-min: 797.6px;
+  $limbo-max: 1199.5px;
+  $desk-min: 1199.6px;
+  $sm-desk-max: 1360.5px;
+  $md-desk-min: 1360.6px;
+  $md-desk-max: 1659.5px;
+  $lg-desk-min: 1659.6px;
+  $huge-desk-min: 2560px;
+
+
+
+@mixin abs {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+
+@mixin clean-list {
+	padding-left: 0;
+	list-style: none;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+@mixin flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@mixin flex-between {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+@mixin flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin flex-center {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin bg_div {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+}
+
+
+// Breakpoints
+
+@mixin mob-only {
+	@media (max-width: $mob-max) {
+		@content;
+	}
+}
+
+@mixin tab-min {
+	@media (min-width: $tab-min) {
+		@content;
+	}
+}
+
+@mixin tab-max {
+	@media (max-width: $tab-max) {
+		@content;
+	}
+}
+
+@mixin tab-only {
+	@media (min-width: $tab-min) and (max-width: $tab-max) {
+		@content;
+	}
+}
+
+@mixin limbo-min {
+	@media (min-width: $limbo-min) {
+		@content;
+	}
+}
+
+@mixin limbo-max {
+	@media (max-width: $limbo-max) {
+		@content;
+	}
+}
+
+@mixin limbo-only {
+	@media (min-width: $limbo-min) and (max-width: $limbo-max) {
+		@content;
+	}
+}
+
+@mixin desk-min {
+	@media (min-width: $desk-min) {
+		@content;
+	}
+}
+
+@mixin sm-desk-only {
+	@media (min-width: $desk-min) and (max-width: $sm-desk-max) {
+		@content;
+	}
+}
+
+@mixin sm-desk-max {
+	@media (max-width: $sm-desk-max) {
+		@content;
+	}
+}
+
+@mixin md-desk-min {
+	@media (min-width: $md-desk-min) {
+		@content;
+	}
+}
+
+@mixin md-desk-max {
+	@media (min-width: $md-desk-max) {
+		@content;
+	}
+}
+
+@mixin md-desk-only {
+	@media (min-width: $md-desk-min)  and (max-width: $md-desk-max) {
+		@content;
+	}
+}
+
+@mixin lg-desk-min {
+	@media (min-width: $lg-desk-min) {
+		@content;
+	}
+}
+
+@mixin huge-desk-min {
+	@media (min-width: $huge-desk-min) {
+		@content;
+	}
+}
+
+
+// Spacings
+
+.space_1 {
+	padding-top: var(--space-1);
+	padding-bottom: var(--space-1);
+}
+
+.space_2 {
+	padding-top: var(--space-2);
+	padding-bottom: var(--space-2);
+}
+
+.space_3 {
+	padding-top: var(--space-3);
+	padding-bottom: var(--space-3);
+}
+
+.space_4 {
+	padding-top: var(--space-4);
+	padding-bottom: var(--space-4);
+}
+
+.space_0_1 {
+	padding-bottom: var(--space-1);
+}
+
+.space_0_2 {
+	padding-bottom: var(--space-2);
+}
+
+.space_0_3 {
+	padding-bottom: var(--space-3);
+}
+
+.space_0_4 {
+	padding-bottom: var(--space-4);
+}
+
+.space_1_0 {
+	padding-top: var(--space-1);
+}
+
+.space_1_2 {
+	padding-top: var(--space-1);
+	padding-bottom: var(--space-2);
+}
+
+.space_1_3 {
+	padding-top: var(--space-1);
+	padding-bottom: var(--space-3);
+}
+
+.space_1_4 {
+	padding-top: var(--space-1);
+	padding-bottom: var(--space-4);
+}
+
+.space_2_0 {
+	padding-top: var(--space-2);
+}
+
+.space_2_1 {
+	padding-top: var(--space-2);
+	padding-bottom: var(--space-1);
+}
+
+.space_2_3 {
+	padding-top: var(--space-2);
+	padding-bottom: var(--space-3);
+}
+
+.space_2_4 {
+	padding-top: var(--space-2);
+	padding-bottom: var(--space-4);
+}
+
+.space_3_0 {
+	padding-top: var(--space-3);
+}
+
+.space_3_1 {
+	padding-top: var(--space-3);
+	padding-bottom: var(--space-1);
+}
+
+.space_3_2 {
+	padding-top: var(--space-3);
+	padding-bottom: var(--space-2);
+}
+
+.space_3_4 {
+	padding-top: var(--space-3);
+	padding-bottom: var(--space-4);
+}
+
+.space_4_0 {
+	padding-top: var(--space-4);
+}
+
+.space_4_1 {
+	padding-top: var(--space-4);
+	padding-bottom: var(--space-1);
+}
+
+.space_4_2 {
+	padding-top: var(--space-4);
+	padding-bottom: var(--space-2);
+}
+
+.space_4_3 {
+	padding-top: var(--space-4);
+	padding-bottom: var(--space-3);
+}
+
+
+// Title Spacings
+
+.t_space_1 {
+	margin-bottom: var(--title-space-1);
+}
+
+.t_space_2 {
+	margin-bottom: var(--title-space-2);
+}
+
+.t_space_3 {
+	margin-bottom: var(--title-space-3);
+}
+
+.t_space_4 {
+	margin-bottom: var(--title-space-4);
+}
+
+.c-wide {
+    width: var(--site-width);
+    max-width: var(--max-width-wide);
+    margin-inline: auto;
+}
+
+.c-narrow, .container {
+    width: var(--site-width);
+    max-width: var(--max-width-narrow);
+    margin-inline: auto;
+}
+
+// Buttons
+
+.btns {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: calc(var(--space-4) * -1);
+	@include mob-only {
+		flex-direction: column;
+	}
+}
+
+
+@mixin btn {
+	padding: 1.6rem 3.2rem;
+	width: fit-content;
+	min-width: 200px;
+	display: inline-flex;
+	box-sizing: border-box;
+	justify-content: center;
+	text-transform: uppercase;
+	font-weight: 500;
+	border-radius: 2px;
+	transition: var(--st);
+	position: relative;
+	overflow: hidden;
+	border-radius: 2px;
+	margin-bottom: var(--space-4);
+	&:not(:last-of-type) {
+		@include tab-min {
+			margin-right: 2.4rem;
+		}
+	}
+	&::after {
+		content: "";
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+		background-color: var(--bg-dark);
+		z-index: 2;
+		background-image: url(icons/link.svg);
+		background-repeat: no-repeat;
+		background-position: top 2.5px right 5px;
+		background-size: 0;
+		border-bottom-left-radius: 70px;
+		-webkit-transition: var(--st);
+		transition: var(--st);
+		border-top-right-radius: 2px;
+	}
+	&:hover {
+		&::after {
+			width: 25px;
+			height: 20px;
+			background-size: 10px;
+
+		}
+	}
+	@include mob-only {
+		width: 100%;
+	}
+  }
+
+@mixin btn-1 {
+	@include btn;
+	color: var(--t-color);
+	background-color: var(--color-1);
+}
+
+@mixin btn-2 {
+	@include btn;
+	color: #fff;
+	background-color: var(--color-2);
+	font-weight: 400;
+}
+
+@mixin btn-3 {
+	@include btn;
+	color: var(--t-color);
+	background-color: #fff;
+}
+
+
+.btn-1 {
+	@include btn-1;
+}
+
+.btn-2 {
+	@include btn-2;
+}
+
+.btn-3 {
+	@include btn-3;
+}
+
+@mixin bs {
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+@mixin ds {
+	filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+@mixin br1 {
+	border-radius: .5rem;
+}
+
+html {
+	font-size: 10px;
+	@include md-desk-only {
+		font-size: 8px;
+	  }
+	  @include sm-desk-only {
+		font-size: 7px;
+	  }
+	  @include limbo-only {
+		font-size: 7px;
+	  }
+	  @include tab-only {
+		font-size: 8px;
+	  }
+	  @include mob-only {
+		font-size: 7px;
+	  }
+	  :where(.wp-block) {
+		max-width: 90%;
+	  }
+}
+
+:root {
+	@include mob-only {
+		--space-1: 6rem;
+		--space-2: 5rem;
+		--space-3: 4rem;
+		--space-4: 3rem;
+	}
+}
